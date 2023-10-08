@@ -1,24 +1,28 @@
 import { useState } from "react";
 import Container from "./Container";
 import { links } from "../constants/topnav-links";
-import { logoIcon } from "../assets";
 
 const Topnav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div id="topnav" className="sticky top-0 bg-slate-100 py-1">
+    <div
+      id="topnav"
+      className="sticky top-0 py-4 bg-zinc-700/80 backdrop-blur-sm z-50 shadow-[0_0_8px_#3f3f46]"
+    >
       <Container>
         <div className="grid grid-cols-2">
           <div className="flex justify-start items-center">
-            <a href="/">
-              <img src={logoIcon} alt="Icons Logo Labi" className="w-12 h-12" />
-            </a>
+            <a href="/" className="text-xl font-extrabold tracking-widest text-gray-200">AJAKDONG</a>
           </div>
           <div className="hidden lg:flex justify-between items-center">
             {links.map((link) => {
               return (
-                <a key={link.id} href={link.href} className="font-sans">
+                <a
+                  key={link.id}
+                  href={link.href}
+                  className="font-sans text-md font-medium tracking-wide text-gray-200"
+                >
                   {link.linkName}
                 </a>
               );
@@ -29,7 +33,7 @@ const Topnav = () => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="white"
                 className="w-7 h-7"
               >
                 <path
@@ -41,18 +45,23 @@ const Topnav = () => {
             </button>
           </div>
         </div>
+        {/* &dtgua7mGV3LtR& */}
         <div
           className={
             isOpen
-              ? "bg-slate-100 fixed w-screen h-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden flex justify-center items-center flex-col"
-              : "hidden"
+              ? `bg-zinc-800/95 backdrop-blur-lg fixed w-screen h-screen top-0 left-0
+              lg:hidden flex justify-center items-center flex-col animate-[fade_0.25s_ease-in_forwards] origin-top`
+              : "animate-[fade_0.3s_ease-out] origin-top hidden"
           }
         >
-          <button onClick={() => setIsOpen(!isOpen)} className="absolute top-3 right-3">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="absolute top-3 right-3"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              fill="white"
               className="w-6 h-6"
             >
               <path
@@ -67,14 +76,16 @@ const Topnav = () => {
               <a
                 key={link.id}
                 href={link.href}
-                className="font-sans mb-3"
+                className="font-sans mb-3 text-slate-100"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 {link.linkName}
               </a>
             );
           })}
-          <p className="absolute text-xs text-slate-500 bottom-3">&copy; alright reserved by Labi.id</p>
+          <p className="absolute text-xs text-slate-100 bottom-3">
+            &copy; 2023 Alright Reserved by Labi.id
+          </p>
         </div>
       </Container>
     </div>

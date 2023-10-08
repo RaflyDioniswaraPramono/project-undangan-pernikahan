@@ -1,3 +1,17 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-custom {
+  background: url(./assets/images/bg.jpg);
+  background-size: cover;  
+}
+
+@media screen and (max-width: 700px) {
+  .bg-custom {
+    background: url(./assets/images/bg2.jpg);
+    background-size: cover;  
+  }
+}

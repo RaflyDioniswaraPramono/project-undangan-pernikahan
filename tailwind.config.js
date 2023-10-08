@@ -5,7 +5,21 @@ export default {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      animation: {
+        fade: "fade 0.5s ease-in-out forwards",
+      },
+      keyframes: {
+        fade: {
+          "0%": {
+            transform: 'scaleY(0)'
+          },
+          "100%": {
+            transform: "scaleX(1)",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };
